@@ -119,3 +119,35 @@ function tasksCounter() {
    }
 }
 tasksCounter()
+// margin Input
+const div = document.getElementsByTagName('div')[1];
+const inputMargin = () => {
+   div.style.cssText = 'margin-bottom: 15px'
+}
+inputMargin();
+
+// localStorage
+
+let saveTask = document.querySelector('.save-task');
+let ul = document.getElementsByTagName('ul')[0];
+const saveTasks = () => {
+   let ulResult = ul.innerHTML;
+   localStorage.setItem('tasks', ulResult);
+}
+saveTask.addEventListener('click', saveTasks);
+
+const getSaveTasks = () => {
+   ul.innerHTML = localStorage.getItem('tasks');
+}
+getSaveTasks();
+
+
+let clearTask = document.querySelector('.clear-task');
+const clearTasks = () => {
+   ul.innerHTML = '';
+   document.getElementsByClassName('newP')[0].innerText = `Выполнено задач: 0. Активные задачи: 0`
+   localStorage.clear();
+
+}
+clearTask.addEventListener('click', clearTasks)
+
